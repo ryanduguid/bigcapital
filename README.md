@@ -10,22 +10,22 @@
 
   <p align="center">
     <a href="https://github.com/bigcapitalhq/bigcapital/commits/develop">
-      <img src="https://img.shields.io/github/commit-activity/m/bigcapitalhq/bigcapital/develop" />
+      <img src="https://img.shields.io/github/commit-activity/m/bigcapitalhq/bigcapital/develop?style=flat&labelColor=000000&color=66023C" />
     </a>
     <a href="https://hub.docker.com/u/bigcapitalhq">
-      <img src="https://img.shields.io/docker/pulls/bigcapitalhq/webapp" />
+      <img src="https://img.shields.io/docker/pulls/bigcapitalhq/webapp?style=flat&labelColor=000000&color=66023C" />
     </a>
     <a href="https://discord.com/invite/c8nPBJafeb">
-      <img src="https://img.shields.io/discord/1066514716752625725?label=Discord" alt="" />
+      <img src="https://img.shields.io/discord/1066514716752625725?label=Discord&style=flat&labelColor=000000&color=66023C" alt="" />
     </a>
     <a href="https://github.com/bigcapitalhq/bigcapital/graphs/contributors">
-      <img src="https://img.shields.io/github/contributors/bigcapitalhq/bigcapital" alt="" />
+      <img src="https://img.shields.io/github/contributors/bigcapitalhq/bigcapital?style=flat&labelColor=000000&color=66023C" alt="" />
     </a>
     <a href="https://github.com/bigcapitalhq/bigcapital/blob/develop/LICENSE">
-      <img src="https://img.shields.io/github/license/bigcapitalhq/bigcapital" alt="" />
+      <img src="https://img.shields.io/github/license/bigcapitalhq/bigcapital?style=flat&labelColor=000000&color=66023C" alt="" />
     </a>
     <a href="https://twitter.com/bigcapitalhq"> 
-      <img src="https://img.shields.io/twitter/follow/bigcapitalhq?style=social" alt="twitter" />
+      <img src="https://img.shields.io/twitter/follow/bigcapitalhq?style=flat&labelColor=000000&color=66023C" alt="twitter" />
     </a>
   </p>
 
