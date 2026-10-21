@@ -67,13 +67,13 @@ To get started locally, we have a [guide to help you](https://github.com/bigcapi
 - Click the Gitpod button below to open this project in development mode.
 - This will open and configure the workspace in your browser with all the necessary dependencies.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/new/#https://github.com/bigcapitalhq/bigcapital)
+[![Open in Gitpod](https://img.shields.io/badge/Open%20in-Gitpod-66023C?style=flat&labelColor=000000&color=66023C)](https://gitpod.io/new/#https://github.com/bigcapitalhq/bigcapital)
 
 ## Headless Accounting
 
 You can integrate Bigcapital API with your system to organize your transactions in double-entry system to get the best financial reports.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/bigcapital/workspace/bigcapital-api)
+[![Run in Postman](https://img.shields.io/badge/Run%20in-Postman-66023C?style=flat&labelColor=000000&color=66023C)](https://www.postman.com/bigcapital/workspace/bigcapital-api)
 
 # Resources
 
@@ -91,7 +91,7 @@ Please see [Releases](https://github.com/bigcapitalhq/bigcapital/releases) for m
 
 Meet our sales team for any commercial inquiries.
 
-<a target="_blank" href="https://cal.com/ahmed-bouhuolia-ekk3ph/30min"><img src="https://cal.com/book-with-cal-dark.svg" alt="Book us with Cal.com"></a>
+<a target="_blank" href="https://cal.com/ahmed-bouhuolia-ekk3ph/30min"><img src="https://img.shields.io/badge/Book%20with-Cal.com-66023C?style=flat&amp;labelColor=000000&amp;color=66023C" alt="Book us with Cal.com"></a>
 
 # Recognition
 
