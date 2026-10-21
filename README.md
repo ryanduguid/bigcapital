@@ -97,9 +97,9 @@ Meet our sales team for any commercial inquiries.
 
 <a href="https://news.ycombinator.com/item?id=36118990">
   <img
-    style="width: 250px; height: 54px;" width="250" height="54"
+    height="20"
     alt="Featured on Hacker News"
-    src="https://hackernews-badge.vercel.app/api?id=36118990"
+    src="https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fhackernews-badge.vercel.app%2Fapi%3Fid%3D36118990&query=concat%28%27%E2%96%B2+%27%2C+%2F%2F*%5Blocal-name%28%29%3D%27text%27%5D%5B2%5D%29&label=Hacker+News&style=flat&labelColor=000000&color=66023C"
   />
 </a>
 
