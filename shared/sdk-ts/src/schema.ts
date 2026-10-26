@@ -11631,6 +11631,12 @@ export interface components {
              */
             journalType?: string;
             /**
+             * @description Accounting basis of the journal entries; null means general, which appears in both cash and accrual reports
+             * @example accrual
+             * @enum {string|null}
+             */
+            basis?: "cash" | "accrual" | null;
+            /**
              * @description Reference number
              * @example REF-001
              */
@@ -11740,6 +11746,11 @@ export interface components {
             journalNumber?: string;
             /** @description Journal type */
             journalType?: string;
+            /**
+             * @description Accounting basis of the journal entries; null means general, which appears in both cash and accrual reports
+             * @enum {string|null}
+             */
+            basis?: "cash" | "accrual" | null;
             /** @description Reference */
             reference?: string;
             /** @description Description */
@@ -11767,6 +11778,11 @@ export interface components {
             journalNumber?: string;
             /** @description Journal type */
             journalType?: string;
+            /**
+             * @description Accounting basis of the journal entries; null means general, which appears in both cash and accrual reports
+             * @enum {string|null}
+             */
+            basis?: "cash" | "accrual" | null;
             /** @description Reference */
             reference?: string;
             /** @description Description */
@@ -14599,6 +14615,16 @@ export interface components {
             previousYearAmountChange: boolean;
             /** @description Show previous year percentage change */
             previousYearPercentageChange: boolean;
+            /**
+             * @description Column the accounts are sorted by
+             * @enum {string}
+             */
+            columnSortBy?: "name" | "total" | "previous_period" | "previous_period_change" | "previous_period_percentage" | "previous_year" | "previous_year_change" | "previous_year_percentage" | "percentage_of_column" | "percentage_of_row";
+            /**
+             * @description Sort order of the accounts
+             * @enum {string}
+             */
+            sortOrder?: "asc" | "desc";
         };
         FinancialReportTotalDto: {
             /** @description Numeric amount */
@@ -15216,6 +15242,16 @@ export interface components {
             displayColumnsBy: "day" | "month" | "year" | "quarter";
             /** @description Number format settings */
             numberFormat: components["schemas"]["NumberFormatQueryDto"];
+            /**
+             * @description Column the accounts are sorted by
+             * @enum {string}
+             */
+            columnSortBy?: "account" | "debit" | "credit" | "total";
+            /**
+             * @description Sort order of the accounts
+             * @enum {string}
+             */
+            sortOrder?: "asc" | "desc";
         };
         TrialBalanceSheetAccountDto: {
             /** @description Account ID */
@@ -15517,6 +15553,11 @@ export interface components {
             accountCode: string;
             /** @description Account ID */
             accountId: number;
+            /**
+             * @description Accounting basis of the entry; null means general
+             * @enum {string|null}
+             */
+            basis: "cash" | "accrual" | null;
         };
         TransactionsByReferenceResponseDto: {
             /** @description Transactions linked to the given reference */
@@ -15986,6 +16027,11 @@ export interface components {
             fromDate: string;
             /** @description End date */
             toDate: string;
+            /**
+             * @description Accounting basis
+             * @enum {string}
+             */
+            basis: "cash" | "accrual";
             /** @description From range */
             fromRange?: number;
             /** @description To range */
@@ -16142,6 +16188,16 @@ export interface components {
             previousYearAmountChange: boolean;
             /** @description Show previous year percentage change */
             previousYearPercentageChange: boolean;
+            /**
+             * @description Column the accounts are sorted by
+             * @enum {string}
+             */
+            columnSortBy?: "name" | "total" | "previous_period" | "previous_period_change" | "previous_period_percentage" | "previous_year" | "previous_year_change" | "previous_year_percentage" | "percentage_income" | "percentage_expenses" | "percentage_column" | "percentage_row";
+            /**
+             * @description Sort order of the accounts
+             * @enum {string}
+             */
+            sortOrder?: "asc" | "desc";
         };
         ProfitLossSheetDataNodeDto: {
             /** @description Node identifier (string for aggregates, number for accounts) */
@@ -26574,6 +26630,10 @@ export interface operations {
                 previousYearAmountChange?: boolean;
                 /** @description Whether to show percentage change from previous year */
                 previousYearPercentageChange?: boolean;
+                /** @description Column to sort the accounts by */
+                columnSortBy?: "name" | "total" | "previous_period" | "previous_period_change" | "previous_period_percentage" | "previous_year" | "previous_year_change" | "previous_year_percentage" | "percentage_of_column" | "percentage_of_row";
+                /** @description Sort order for the accounts */
+                sortOrder?: "asc" | "desc";
                 /** @description Number formatting options (serialized as bracket notation, e.g. numberFormat[precision]=2) */
                 numberFormat?: components["schemas"]["NumberFormatQueryDto"];
             };
@@ -29317,6 +29377,10 @@ export interface operations {
                 onlyActive?: boolean;
                 /** @description Filter by specific account IDs */
                 accountIds?: number[];
+                /** @description Column to sort the accounts by */
+                columnSortBy?: "account" | "debit" | "credit" | "total";
+                /** @description Sort order for the accounts */
+                sortOrder?: "asc" | "desc";
                 /** @description Number formatting options (serialized as bracket notation, e.g. numberFormat[precision]=2) */
                 numberFormat?: components["schemas"]["NumberFormatQueryDto"];
             };
@@ -30010,6 +30074,8 @@ export interface operations {
                 referenceType: string;
                 /** @description The ID of the reference */
                 referenceId: number;
+                /** @description The accounting basis of the transactions */
+                basis?: "cash" | "accrual";
                 /** @description Number formatting options (serialized as bracket notation, e.g. numberFormat[precision]=2) */
                 numberFormat?: components["schemas"]["NumberFormatQueryDto"];
             };
@@ -30679,6 +30745,8 @@ export interface operations {
             query?: {
                 /** @description Filter out branches (if multiple branches feature is enabled) */
                 branchesIds?: number[];
+                /** @description Accounting basis for the report */
+                basis?: "cash" | "accrual";
                 /** @description Type of transaction to filter */
                 transactionType?: string;
                 /** @description ID of the transaction to filter */
@@ -30713,6 +30781,7 @@ export interface operations {
                      *       "query": {
                      *         "from_date": "2025-06-01",
                      *         "to_date": "2025-06-21",
+                     *         "basis": "accrual",
                      *         "from_range": null,
                      *         "to_range": null,
                      *         "accounts_ids": [],
@@ -31033,6 +31102,10 @@ export interface operations {
                 previousYearAmountChange?: boolean;
                 /** @description Whether to show previous year percentage change */
                 previousYearPercentageChange?: boolean;
+                /** @description Column to sort the accounts by */
+                columnSortBy?: "name" | "total" | "previous_period" | "previous_period_change" | "previous_period_percentage" | "previous_year" | "previous_year_change" | "previous_year_percentage" | "percentage_income" | "percentage_expenses" | "percentage_column" | "percentage_row";
+                /** @description Sort order for the accounts */
+                sortOrder?: "asc" | "desc";
                 /** @description Number formatting options (serialized as bracket notation, e.g. numberFormat[precision]=2) */
                 numberFormat?: components["schemas"]["NumberFormatQueryDto"];
             };

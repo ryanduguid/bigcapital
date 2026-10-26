@@ -15843,6 +15843,40 @@
             }
           },
           {
+            "name": "columnSortBy",
+            "required": false,
+            "in": "query",
+            "description": "Column to sort the accounts by",
+            "schema": {
+              "enum": [
+                "name",
+                "total",
+                "previous_period",
+                "previous_period_change",
+                "previous_period_percentage",
+                "previous_year",
+                "previous_year_change",
+                "previous_year_percentage",
+                "percentage_of_column",
+                "percentage_of_row"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "required": false,
+            "in": "query",
+            "description": "Sort order for the accounts",
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string"
+            }
+          },
+          {
             "name": "accept",
             "required": true,
             "in": "header",
@@ -19096,6 +19130,34 @@
             }
           },
           {
+            "name": "columnSortBy",
+            "required": false,
+            "in": "query",
+            "description": "Column to sort the accounts by",
+            "schema": {
+              "enum": [
+                "account",
+                "debit",
+                "credit",
+                "total"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "required": false,
+            "in": "query",
+            "description": "Sort order for the accounts",
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string"
+            }
+          },
+          {
             "name": "accept",
             "required": true,
             "in": "header",
@@ -19929,6 +19991,20 @@
             "schema": {
               "example": "1",
               "type": "number"
+            }
+          },
+          {
+            "name": "basis",
+            "required": false,
+            "in": "query",
+            "description": "The accounting basis of the transactions",
+            "schema": {
+              "example": "accrual",
+              "enum": [
+                "cash",
+                "accrual"
+              ],
+              "type": "string"
             }
           },
           {
@@ -21035,6 +21111,20 @@
             }
           },
           {
+            "name": "basis",
+            "required": false,
+            "in": "query",
+            "description": "Accounting basis for the report",
+            "schema": {
+              "example": "accrual",
+              "enum": [
+                "cash",
+                "accrual"
+              ],
+              "type": "string"
+            }
+          },
+          {
             "name": "transactionType",
             "required": false,
             "in": "query",
@@ -21104,6 +21194,7 @@
                   "query": {
                     "from_date": "2025-06-01",
                     "to_date": "2025-06-21",
+                    "basis": "accrual",
                     "from_range": null,
                     "to_range": null,
                     "accounts_ids": [],
@@ -21586,6 +21677,42 @@
             "description": "Whether to show previous year percentage change",
             "schema": {
               "type": "boolean"
+            }
+          },
+          {
+            "name": "columnSortBy",
+            "required": false,
+            "in": "query",
+            "description": "Column to sort the accounts by",
+            "schema": {
+              "enum": [
+                "name",
+                "total",
+                "previous_period",
+                "previous_period_change",
+                "previous_period_percentage",
+                "previous_year",
+                "previous_year_change",
+                "previous_year_percentage",
+                "percentage_income",
+                "percentage_expenses",
+                "percentage_column",
+                "percentage_row"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "required": false,
+            "in": "query",
+            "description": "Sort order for the accounts",
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string"
             }
           },
           {
@@ -34521,6 +34648,16 @@
             "description": "Journal type",
             "example": "General"
           },
+          "basis": {
+            "type": "string",
+            "description": "Accounting basis of the journal entries; null means general, which appears in both cash and accrual reports",
+            "enum": [
+              "cash",
+              "accrual"
+            ],
+            "nullable": true,
+            "example": "accrual"
+          },
           "reference": {
             "type": "string",
             "description": "Reference number",
@@ -34687,6 +34824,15 @@
             "type": "string",
             "description": "Journal type"
           },
+          "basis": {
+            "type": "string",
+            "description": "Accounting basis of the journal entries; null means general, which appears in both cash and accrual reports",
+            "enum": [
+              "cash",
+              "accrual"
+            ],
+            "nullable": true
+          },
           "reference": {
             "type": "string",
             "description": "Reference"
@@ -34746,6 +34892,15 @@
           "journalType": {
             "type": "string",
             "description": "Journal type"
+          },
+          "basis": {
+            "type": "string",
+            "description": "Accounting basis of the journal entries; null means general, which appears in both cash and accrual reports",
+            "enum": [
+              "cash",
+              "accrual"
+            ],
+            "nullable": true
           },
           "reference": {
             "type": "string",
@@ -38973,6 +39128,30 @@
           "previousYearPercentageChange": {
             "type": "boolean",
             "description": "Show previous year percentage change"
+          },
+          "columnSortBy": {
+            "type": "string",
+            "description": "Column the accounts are sorted by",
+            "enum": [
+              "name",
+              "total",
+              "previous_period",
+              "previous_period_change",
+              "previous_period_percentage",
+              "previous_year",
+              "previous_year_change",
+              "previous_year_percentage",
+              "percentage_of_column",
+              "percentage_of_row"
+            ]
+          },
+          "sortOrder": {
+            "type": "string",
+            "description": "Sort order of the accounts",
+            "enum": [
+              "asc",
+              "desc"
+            ]
           }
         },
         "required": [
@@ -40914,6 +41093,24 @@
                 "$ref": "#/components/schemas/NumberFormatQueryDto"
               }
             ]
+          },
+          "columnSortBy": {
+            "type": "string",
+            "description": "Column the accounts are sorted by",
+            "enum": [
+              "account",
+              "debit",
+              "credit",
+              "total"
+            ]
+          },
+          "sortOrder": {
+            "type": "string",
+            "description": "Sort order of the accounts",
+            "enum": [
+              "asc",
+              "desc"
+            ]
           }
         },
         "required": [
@@ -41846,6 +42043,15 @@
           "accountId": {
             "type": "number",
             "description": "Account ID"
+          },
+          "basis": {
+            "type": "string",
+            "description": "Accounting basis of the entry; null means general",
+            "enum": [
+              "cash",
+              "accrual"
+            ],
+            "nullable": true
           }
         },
         "required": [
@@ -41860,7 +42066,8 @@
           "referenceId",
           "accountName",
           "accountCode",
-          "accountId"
+          "accountId",
+          "basis"
         ]
       },
       "TransactionsByReferenceResponseDto": {
@@ -43378,6 +43585,14 @@
             "type": "string",
             "description": "End date"
           },
+          "basis": {
+            "type": "string",
+            "description": "Accounting basis",
+            "enum": [
+              "cash",
+              "accrual"
+            ]
+          },
           "fromRange": {
             "type": "number",
             "description": "From range"
@@ -43405,6 +43620,7 @@
         "required": [
           "fromDate",
           "toDate",
+          "basis",
           "accountsIds",
           "numberFormat"
         ]
@@ -43801,6 +44017,32 @@
           "previousYearPercentageChange": {
             "type": "boolean",
             "description": "Show previous year percentage change"
+          },
+          "columnSortBy": {
+            "type": "string",
+            "description": "Column the accounts are sorted by",
+            "enum": [
+              "name",
+              "total",
+              "previous_period",
+              "previous_period_change",
+              "previous_period_percentage",
+              "previous_year",
+              "previous_year_change",
+              "previous_year_percentage",
+              "percentage_income",
+              "percentage_expenses",
+              "percentage_column",
+              "percentage_row"
+            ]
+          },
+          "sortOrder": {
+            "type": "string",
+            "description": "Sort order of the accounts",
+            "enum": [
+              "asc",
+              "desc"
+            ]
           }
         },
         "required": [
