@@ -10,22 +10,22 @@
 
   <p align="center">
     <a href="https://github.com/bigcapitalhq/bigcapital/commits/develop">
-      <img src="https://img.shields.io/github/commit-activity/m/bigcapitalhq/bigcapital/develop?style=flat&labelColor=000000&color=66023C" />
+      <img src="https://img.shields.io/github/commit-activity/m/bigcapitalhq/bigcapital/develop" />
     </a>
     <a href="https://hub.docker.com/u/bigcapitalhq">
-      <img src="https://img.shields.io/docker/pulls/bigcapitalhq/webapp?style=flat&labelColor=000000&color=66023C" />
+      <img src="https://img.shields.io/docker/pulls/bigcapitalhq/webapp" />
     </a>
     <a href="https://discord.com/invite/c8nPBJafeb">
-      <img src="https://img.shields.io/discord/1066514716752625725?label=Discord&style=flat&labelColor=000000&color=66023C" alt="" />
+      <img src="https://img.shields.io/discord/1066514716752625725?label=Discord" alt="" />
     </a>
     <a href="https://github.com/bigcapitalhq/bigcapital/graphs/contributors">
-      <img src="https://img.shields.io/github/contributors/bigcapitalhq/bigcapital?style=flat&labelColor=000000&color=66023C" alt="" />
+      <img src="https://img.shields.io/github/contributors/bigcapitalhq/bigcapital" alt="" />
     </a>
     <a href="https://github.com/bigcapitalhq/bigcapital/blob/develop/LICENSE">
-      <img src="https://img.shields.io/github/license/bigcapitalhq/bigcapital?style=flat&labelColor=000000&color=66023C" alt="" />
+      <img src="https://img.shields.io/github/license/bigcapitalhq/bigcapital" alt="" />
     </a>
     <a href="https://twitter.com/bigcapitalhq"> 
-      <img src="https://img.shields.io/twitter/follow/bigcapitalhq?style=flat&labelColor=000000&color=66023C" alt="twitter" />
+      <img src="https://img.shields.io/twitter/follow/bigcapitalhq?style=social" alt="twitter" />
     </a>
   </p>
 
@@ -67,13 +67,13 @@ To get started locally, we have a [guide to help you](https://github.com/bigcapi
 - Click the Gitpod button below to open this project in development mode.
 - This will open and configure the workspace in your browser with all the necessary dependencies.
 
-[![Open in Gitpod](https://img.shields.io/badge/Open%20in-Gitpod-66023C?style=flat&labelColor=000000&color=66023C)](https://gitpod.io/new/#https://github.com/bigcapitalhq/bigcapital)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/new/#https://github.com/bigcapitalhq/bigcapital)
 
 ## Headless Accounting
 
 You can integrate Bigcapital API with your system to organize your transactions in double-entry system to get the best financial reports.
 
-[![Run in Postman](https://img.shields.io/badge/Run%20in-Postman-66023C?style=flat&labelColor=000000&color=66023C)](https://www.postman.com/bigcapital/workspace/bigcapital-api)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/bigcapital/workspace/bigcapital-api)
 
 # Resources
 
@@ -91,15 +91,15 @@ Please see [Releases](https://github.com/bigcapitalhq/bigcapital/releases) for m
 
 Meet our sales team for any commercial inquiries.
 
-<a target="_blank" href="https://cal.com/ahmed-bouhuolia-ekk3ph/30min"><img src="https://img.shields.io/badge/Book%20with-Cal.com-66023C?style=flat&amp;labelColor=000000&amp;color=66023C" alt="Book us with Cal.com"></a>
+<a target="_blank" href="https://cal.com/ahmed-bouhuolia-ekk3ph/30min"><img src="https://cal.com/book-with-cal-dark.svg" alt="Book us with Cal.com"></a>
 
 # Recognition
 
 <a href="https://news.ycombinator.com/item?id=36118990">
   <img
-    height="20"
+    style="width: 250px; height: 54px;" width="250" height="54"
     alt="Featured on Hacker News"
-    src="https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fhackernews-badge.vercel.app%2Fapi%3Fid%3D36118990&query=concat%28%27%E2%96%B2+%27%2C+%2F%2F*%5Blocal-name%28%29%3D%27text%27%5D%5B2%5D%29&label=Hacker+News&style=flat&labelColor=000000&color=66023C"
+    src="https://hackernews-badge.vercel.app/api?id=36118990"
   />
 </a>
 
