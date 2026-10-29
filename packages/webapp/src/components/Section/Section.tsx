@@ -176,7 +176,7 @@ export const Section: React.FC<SectionProps> = React.forwardRef(
           <div
             role={collapsible ? 'button' : undefined}
             aria-pressed={collapsible ? isCollapsed : undefined}
-            aria-expanded={collapsible ? isCollapsed : undefined}
+            aria-expanded={collapsible ? !isCollapsed : undefined}
             aria-controls={collapsible ? sectionId : undefined}
             className={classNames(CLASSES.SECTION_HEADER, {
               [CLASSES.INTERACTIVE]: collapsible,
@@ -231,7 +231,14 @@ export const Section: React.FC<SectionProps> = React.forwardRef(
         )}
         {collapsible ? (
           // @ts-ignore
-          <Collapse isOpen={!isCollapsed}>{children}</Collapse>
+          <Collapse
+            className={collapseProps?.className}
+            keepChildrenMounted={collapseProps?.keepChildrenMounted}
+            transitionDuration={collapseProps?.transitionDuration}
+            isOpen={!isCollapsed}
+          >
+            {children}
+          </Collapse>
         ) : (
           children
         )}
