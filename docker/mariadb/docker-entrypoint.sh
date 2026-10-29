@@ -8,12 +8,17 @@ escape_sed_replacement() {
     printf '%s' "$1" | sed -e 's/[\\/&]/\\&/g'
 }
 
+# Escapes the given value for a single-quoted SQL string literal (`\` and `'`).
+escape_sql_string() {
+    printf '%s' "$1" | sed -e 's/\\/\\\\/g' -e "s/'/''/g"
+}
+
 # Replace environment variables in SQL files with their values
 if [ -n "$MYSQL_USER" ]; then
-    sed -i "s/{MYSQL_USER}/$(escape_sed_replacement "$MYSQL_USER")/g" /scripts/init.sql
+    sed -i "s/{MYSQL_USER}/$(escape_sed_replacement "$(escape_sql_string "$MYSQL_USER")")/g" /scripts/init.sql
 fi
 if [ -n "$MYSQL_PASSWORD" ]; then
-    sed -i "s/{MYSQL_PASSWORD}/$(escape_sed_replacement "$MYSQL_PASSWORD")/g" /scripts/init.sql
+    sed -i "s/{MYSQL_PASSWORD}/$(escape_sed_replacement "$(escape_sql_string "$MYSQL_PASSWORD")")/g" /scripts/init.sql
 fi
 if [ -n "$MYSQL_DATABASE" ]; then
     sed -i "s/{MYSQL_DATABASE}/$(escape_sed_replacement "$MYSQL_DATABASE")/g" /scripts/init.sql
