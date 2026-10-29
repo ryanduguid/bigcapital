@@ -22,7 +22,7 @@ export function PaymentReceiveListField({
 
   return (
     <ListSelect
-      item={invoices}
+      items={invoices}
       noResults={<MenuItem disabled={true} text={<T id={'no_results'} />} />}
       itemRenderer={handleInvoiceRenderer}
       popoverProps={{ minimal: true }}

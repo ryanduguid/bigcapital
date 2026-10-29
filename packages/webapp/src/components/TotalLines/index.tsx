@@ -115,7 +115,7 @@ const TotalLinePrimitiveBase = styled.div`
       border-bottom-color: transparent;
     `}
     ${(props) =>
-      props.textStyle === TotalLineBorderStyle.Bold &&
+      props.textStyle === TotalLineTextStyle.Bold &&
       `
       font-weight: 600;
     `}
