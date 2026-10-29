@@ -53,7 +53,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/common.sh"
 
 # Get all paths and variables from common functions
-eval $(get_feature_paths)
+eval "$(get_feature_paths)"
 
 NEW_PLAN="$IMPL_PLAN"  # Alias for compatibility with existing code
 AGENT_TYPE="${1:-}"
@@ -432,7 +432,8 @@ update_existing_agent_file() {
             in_changes_section=true
             changes_entries_added=true
             continue
-        elif [[ $in_changes_section == true ]] && [[ "$line" =~ ^##[[:space:]] ]]; then
+        elif [[ $in_changes_section == true ]] && { [[ "$line" =~ ^##[[:space:]] ]] || [[ "$line" == "<!-- MANUAL ADDITIONS START -->" ]]; }; then
+            # A new section or the manual additions block ends the changes list
             echo "$line" >> "$temp_file"
             in_changes_section=false
             continue
