@@ -15,8 +15,8 @@ test.describe('authentication', () => {
   test.afterAll(async () => {
     await authPage.close();
   });
-  test.afterEach(async ({ context }) => {
-    context.clearCookies();
+  test.afterEach(async () => {
+    await authPage.context().clearCookies();
     await clearLocalStorage(authPage);
   });
 
