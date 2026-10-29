@@ -1679,7 +1679,7 @@
   "transactions_locking.cancel_partial_unlock": "Avbryt Partiell upplåsning",
   "transactions_locking.of_the_module_locked_to": "Transaktioner i modulen låsta till <strong>{value}</strong>.",
   "transactions_locking.lock_reason": "<strong>Låsningsorsak</strong>: {value}.",
-  "transactions_locking.partial_unlocked_from": "Delvis upplåst från <strong>{fromDate}</strong> till <strong>{tillDatum}</strong>.",
+  "transactions_locking.partial_unlocked_from": "Delvis upplåst från <strong>{fromDate}</strong> till <strong>{toDate}</strong>.",
   "transactions_locking.unlock_reason": "<strong>Upplåsningsorsak:</strong> {value}.",
   "transactions_locking.callout.lock_individual.desc": "Du har möjlighet att låsa transaktioner för alla moduler samtidigt i stället för att låsa transaktioner för varje modul för sig.",
   "transactions_locking.callout.lock_all_at_once.desc": "Du har möjlighet att låsa eller låsa upp transaktioner för varje modul individuellt istället för att låsa alla transaktioner på en gång.",
