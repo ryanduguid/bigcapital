@@ -18,6 +18,8 @@ import type {
   VendorBalanceTableQuery,
   VendorBalanceTableResponse,
   VendorBalancePdfQuery,
+  VendorBalanceXlsxQuery,
+  VendorBalanceCsvQuery,
 } from '@bigcapital/sdk-ts';
 
 interface VendorsBalanceSummaryReport {
@@ -47,26 +49,28 @@ export function useVendorsBalanceSummaryReport(
 }
 
 export function useVendorBalanceSummaryXlsxExport(
+  query: VendorBalanceXlsxQuery,
   args?: Omit<UseMutationOptions<void, Error, void>, 'mutationFn'>,
 ) {
   const fetcher = useApiFetcher();
   return useMutation({
     ...args,
     mutationFn: () =>
-      fetchVendorBalanceXlsx(fetcher, {}).then((blob) =>
+      fetchVendorBalanceXlsx(fetcher, query).then((blob) =>
         downloadFile(blob, 'vendor_balance_summary.xlsx'),
       ),
   });
 }
 
 export function useVendorBalanceSummaryCsvExport(
+  query: VendorBalanceCsvQuery,
   args?: Omit<UseMutationOptions<void, Error, void>, 'mutationFn'>,
 ) {
   const fetcher = useApiFetcher();
   return useMutation({
     ...args,
     mutationFn: () =>
-      fetchVendorBalanceCsv(fetcher, {}).then((blob) =>
+      fetchVendorBalanceCsv(fetcher, query).then((blob) =>
         downloadFile(blob, 'vendor_balance_summary.csv'),
       ),
   });

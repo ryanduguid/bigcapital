@@ -161,6 +161,8 @@ export const productsServices: HomepageSectionOption[] = [
         title: <T id={'products_services_categories'} />,
         description: <T id={'group_your_products_and_service'} />,
         link: 'items/categories',
+        subject: AbilitySubject.Item,
+        ability: ItemAction.View,
       },
       {
         title: <T id={'inventory_adjustments'} />,

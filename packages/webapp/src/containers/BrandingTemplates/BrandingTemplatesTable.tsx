@@ -9,7 +9,6 @@ import type { WithAlertActionsProps } from '@/containers/Alert/withAlertActions'
 import type { WithDrawerActionsProps } from '@/containers/Drawer/withDrawerActions';
 import type { MouseEvent } from 'react';
 import { DataTable, TableSkeletonRows } from '@/components';
-import { DRAWERS } from '@/constants/drawers';
 import { withAlertActions } from '@/containers/Alert/withAlertActions';
 import { withDrawerActions } from '@/containers/Drawer/withDrawerActions';
 
@@ -26,7 +25,10 @@ function BrandingTemplateTableRoot({
   const { isPdfTemplatesLoading, pdfTemplates } = useBrandingTemplatesBoot();
 
   const handleEditTemplate = (template: BrandingTemplateRow) => {
-    openDrawer(DRAWERS.INVOICE_CUSTOMIZE, {
+    // Retrieves the customize drawer name from the given resource name.
+    const drawerName = getCustomizeDrawerNameFromResource(template.resource);
+
+    openDrawer(drawerName, {
       templateId: template.id,
       resource: template.resource,
     });
