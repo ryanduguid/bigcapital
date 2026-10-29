@@ -56,7 +56,7 @@ describe('Transactions Locking (e2e)', () => {
       .expect(200);
 
     return request(app.getHttpServer())
-      .put('/transactions-locking/cancel-lock')
+      .put('/transactions-locking/unlock-partial')
       .set('organization-id', orgainzationId)
       .set('Authorization', AuthorizationHeader)
       .send({

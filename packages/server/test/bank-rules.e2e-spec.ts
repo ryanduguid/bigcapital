@@ -80,16 +80,14 @@ describe('Bank Rules (e2e)', () => {
   });
 
   it('/banking/rules (GET)', async () => {
-    const response = await request(app.getHttpServer())
+    await request(app.getHttpServer())
       .post('/banking/rules')
       .set('organization-id', orgainzationId)
       .set('Authorization', AuthorizationHeader)
       .send(requestBankRule());
 
-    const ruleId = response.body.id;
-
     return request(app.getHttpServer())
-      .get(`/banking/rules/${ruleId}`)
+      .get('/banking/rules')
       .set('organization-id', orgainzationId)
       .set('Authorization', AuthorizationHeader)
       .expect(200);

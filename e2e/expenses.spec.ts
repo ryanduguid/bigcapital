@@ -19,8 +19,10 @@ async function filterExpensesByRef(page: Page, refNo: string) {
   await page.getByRole('button', { name: /filter|filters applied/i }).click();
   await page.getByPlaceholder('Value').first().fill(refNo);
 
-  const row = page.getByTestId('expense-row').first();
-  await expect(row).toBeVisible({ timeout: 30_000 });
+  // Wait until the filter leaves only the expense with the unique reference.
+  const rows = page.getByTestId('expense-row');
+  await expect(rows).toHaveCount(1, { timeout: 30_000 });
+  const row = rows.first();
 
   // Close the filter popover before interacting with the table.
   await page.keyboard.press('Escape');
