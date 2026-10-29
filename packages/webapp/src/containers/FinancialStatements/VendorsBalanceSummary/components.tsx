@@ -7,7 +7,11 @@ import React from 'react';
 import intl from 'react-intl-universal';
 import { FinancialLoadingBar } from '../FinancialLoadingBar';
 import { useVendorsBalanceSummaryContext } from './VendorsBalanceSummaryProvider';
-import type { VendorsBalanceColumnKey } from '@bigcapital/sdk-ts';
+import type {
+  VendorBalanceCsvQuery,
+  VendorBalanceXlsxQuery,
+  VendorsBalanceColumnKey,
+} from '@bigcapital/sdk-ts';
 import { AppToaster, If, Stack } from '@/components';
 import { Align, CLASSES } from '@/constants';
 import {
@@ -113,6 +117,7 @@ export function VendorsSummarySheetLoadingBar() {
  * @returns {JSX.Element}
  */
 export function VendorSummarySheetExportMenu() {
+  const { httpQuery } = useVendorsBalanceSummaryContext();
   const commonToastConfig = {
     isCloseButtonShown: true,
     timeout: 2000,
@@ -136,8 +141,12 @@ export function VendorSummarySheetExportMenu() {
     );
   };
 
-  const { mutateAsync: xlsxExport } = useVendorBalanceSummaryXlsxExport();
-  const { mutateAsync: csvExport } = useVendorBalanceSummaryCsvExport();
+  const { mutateAsync: xlsxExport } = useVendorBalanceSummaryXlsxExport(
+    httpQuery as VendorBalanceXlsxQuery,
+  );
+  const { mutateAsync: csvExport } = useVendorBalanceSummaryCsvExport(
+    httpQuery as VendorBalanceCsvQuery,
+  );
 
   const runExport = async (mutate: () => Promise<unknown>) => {
     const key = AppToaster.show({

@@ -18,7 +18,7 @@ export function CreditNoteDetailFooter() {
   return (
     <CommercialDocFooter>
       <DetailsMenu direction={'horizantal'} minLabelSize={'180px'}>
-        <If condition={!!creditNote?.termsConditions}>
+        <If condition={!!creditNote?.note}>
           <DetailItem
             label={intl.get('note')}
             children={creditNote?.note}
