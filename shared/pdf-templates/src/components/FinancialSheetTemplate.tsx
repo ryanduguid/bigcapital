@@ -1,3 +1,4 @@
+import React from 'react';
 import { x } from '@xstyled/emotion';
 import { Box } from '../lib/layout/Box';
 
@@ -33,6 +34,7 @@ export function FinancialSheetTemplate({
   sheetName,
   sheetDate,
   table,
+  customCSS,
 }: FinancialSheetTemplateProps) {
   return (
     <Box fontSize="14px">
@@ -55,17 +57,30 @@ export function FinancialSheetTemplate({
         >
           <x.thead>
             <x.tr>
-              {table.columns.map((column) => (
-                <x.th
-                  key={column.key}
-                  color="#000"
-                  borderBottom="1px solid #000000"
-                  p="0.5rem"
-                  className={`column--${column.key}`}
-                >
-                  {column.label}
-                </x.th>
-              ))}
+              {table.columns.map((column) => {
+                let styleObj: React.CSSProperties | undefined;
+                if (column.style) {
+                  try {
+                    // Handle style as JSON string
+                    styleObj = JSON.parse(column.style);
+                  } catch {
+                    // If parsing fails, ignore the style
+                    styleObj = undefined;
+                  }
+                }
+                return (
+                  <x.th
+                    key={column.key}
+                    color="#000"
+                    borderBottom="1px solid #000000"
+                    p="0.5rem"
+                    className={`column--${column.key}`}
+                    style={styleObj}
+                  >
+                    {column.label}
+                  </x.th>
+                );
+              })}
             </x.tr>
           </x.thead>
           <x.tbody>
@@ -89,6 +104,10 @@ export function FinancialSheetTemplate({
             ))}
           </x.tbody>
         </x.table>
+
+        {customCSS && (
+          <x.style dangerouslySetInnerHTML={{ __html: customCSS }} />
+        )}
       </Box>
     </Box>
   );
